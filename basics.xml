@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<school>
+  <students>
+    <student id="1">
+      <name>Maťka</name>
+     </student>
+    <student id="2">
+      <name>Adrián</name>
+    </student>
+    <student id="mega" stuff="stuff">
+      <name>Dominik</name>
+    </student>    
+  </students>
+  <teachers>
+    <teacher id="489">
+      <name>Adam</name>
+    </teacher>
+  </teachers>
+</school>

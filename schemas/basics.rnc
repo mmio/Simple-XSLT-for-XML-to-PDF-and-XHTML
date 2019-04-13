@@ -1,0 +1,20 @@
+grammar {
+	 start = school
+
+	 school = element school { 
+		      element students {
+			  element student {
+			      attribute id {text},
+			      attribute stuff {text}?,
+			      element name {text}
+			  }+
+		      },
+		      element teachers {
+			  element teacher {
+			      attribute id {text},
+			      attribute stuff {text}?,
+			      element name {text}
+			  }+
+		      }
+		  }
+}
