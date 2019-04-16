@@ -43,5 +43,6 @@ list_fonts:
 
 presentation:
 	echo "Creating presentation"
+# Take the base.xml and trasform it into xml:fo
 pdf:
 	echo "Creating pdf"
