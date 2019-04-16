@@ -40,3 +40,8 @@ clear:
 
 list_fonts:
 	fc-list | cut -d ':' -f2
+
+presentation:
+	echo "Creating presentation"
+pdf:
+	echo "Creating pdf"
