@@ -42,19 +42,7 @@ list_fonts:
 	fc-list | cut -d ':' -f2
 
 xhtml:
-	$(info [INFO]:Generating XHTML from base.xml)
-
-	$(info [INFO]:Transforming base.xml to output.xhtml)
 	$(SAXON_TRANS) -t -s:base.xml -xsl:transforms/base-to-xhtml.xsl -o:outputs/output.xhtml
 pdf:
-	$(info [INFO]:Generating PDF from base.xml)
-
-	$(info [INFO]:Generating xml:fo from base.xml)
 	$(SAXON_TRANS) -t -s:base.xml -xsl:transforms/base-to-xmlfo.xsl -o:outputs/xmlfo.xml
-
-	$(info [INFO]:Generating pdf from xml:fo)
-	$(info [INFO]:Using FOP)
 	$(FOP) outputs/xmlfo.xml outputs/presentation.pdf
-
-	$(info [INFO]:PDF successfuly generated)
-

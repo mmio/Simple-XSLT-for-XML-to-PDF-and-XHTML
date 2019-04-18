@@ -20,11 +20,9 @@
 	<body>
 	  <xsl:apply-templates select="title" />
 
-
-	  <!-- Based on type=attribute apply template -->
 	  <xsl:apply-templates select="itemize" />
 	  <xsl:apply-templates select="picture" />
-	  <!-- End -->	    
+
 	  <hr />
 	<div>
 	  <!-- if @id != first -->
