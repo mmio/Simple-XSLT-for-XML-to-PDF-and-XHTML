@@ -46,8 +46,6 @@ xhtml:
 
 	$(info [INFO]:Transforming base.xml to output.xhtml)
 	$(SAXON_TRANS) -t -s:base.xml -xsl:transforms/base-to-xhtml.xsl -o:outputs/output.xhtml
-
-	$(info [INFO]:XHTML successfuly generated)
 pdf:
 	$(info [INFO]:Generating PDF from base.xml)
 

@@ -1,0 +1,32 @@
+grammar {
+	 start = presentation
+
+	 presentation = element presentation {
+			    meta,
+			    slides
+			}
+	 
+	 meta = element meta {
+		    element author { text }+,
+		    element date { xsd:date }
+		}
+	 
+	 slides = element slides {
+		      element slide {
+			  attribute type { "title" | "itemize" | "picture"},
+			  element title { text },
+
+			  ( list-slide | picture-slide | title-slide )
+		      }+
+		  }
+
+	 list-slide = element itemize {
+			  element item { text }+
+		      }
+
+	 picture-slide = element picture {
+			     attribute href { text }
+			 }
+
+	 title-slide = empty
+}

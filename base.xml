@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<presentation>
+  <meta>
+    <author>Dominik Vasko</author>
+    <author>Dominik Vasko2</author>
+    <!-- Example:  -->
+    <date> 2019-04-11 </date>
+  </meta>
+  <slides>
+    <slide type="title">
+      <title> Basic presentation </title>
+    </slide>
+
+    <slide type="itemize">
+      <title> Availible slide types </title>
+      <itemize>
+	<item>Title page</item>
+	<item>Lists</item>
+	<item>Picture</item>
+      </itemize>
+    </slide>
+
+    <slide type="picture">
+      <title>A picture</title>
+      <picture href="picture.jpg" />
+    </slide>
+  </slides>
+</presentation>
+
