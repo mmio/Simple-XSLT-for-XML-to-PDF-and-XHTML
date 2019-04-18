@@ -8,11 +8,11 @@
     <date> 2019-04-11 </date>
   </meta>
   <slides>
-    <slide type="title">
+    <slide type="title" id="0">
       <title> Basic presentation </title>
     </slide>
 
-    <slide type="itemize">
+    <slide type="itemize" id="1">
       <title> Availible slide types </title>
       <itemize>
 	<item>Title page</item>
@@ -21,9 +21,9 @@
       </itemize>
     </slide>
 
-    <slide type="picture">
+    <slide type="picture" id="2">
       <title>A picture</title>
-      <picture href="picture.jpg" />
+      <picture href="pics/picture.jpg" />
     </slide>
   </slides>
 </presentation>

@@ -14,6 +14,7 @@ grammar {
 	 slides = element slides {
 		      element slide {
 			  attribute type { "title" | "itemize" | "picture"},
+			  attribute id { xsd:int },
 			  element title { text },
 
 			  ( list-slide | picture-slide | title-slide )
