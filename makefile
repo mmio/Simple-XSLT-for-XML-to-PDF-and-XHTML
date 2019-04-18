@@ -46,3 +46,4 @@ xhtml:
 pdf:
 	$(SAXON_TRANS) -t -s:base.xml -xsl:transforms/base-to-xmlfo.xsl -o:outputs/xmlfo.xml
 	$(FOP) outputs/xmlfo.xml outputs/presentation.pdf
+	rm outputs/xmlfo.xml
