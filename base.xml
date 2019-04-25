@@ -3,27 +3,38 @@
 <presentation>
   <meta>
     <author>Dominik Vasko</author>
-    <author>Dominik Vasko2</author>
     <!-- Example:  -->
     <date> 2019-04-11 </date>
   </meta>
   <slides>
-    <slide type="title" id="0">
-      <title> Basic presentation </title>
+    <slide type="title">
+      <title> How to create a presentation in XML with XSL </title>
     </slide>
 
-    <slide type="itemize" id="1">
-      <title> Availible slide types </title>
+    <slide type="itemize">
+      <title> What you need to get started </title>
       <itemize>
-	<item>Title page</item>
-	<item>Lists</item>
-	<item>Picture</item>
+	<item>Saxon</item>
+	<item>FOP</item>
+	<item>Stylesheets</item>
+	<item>XML, XSL editor</item>
       </itemize>
     </slide>
 
-    <slide type="picture" id="2">
-      <title>A picture</title>
-      <picture href="pics/picture.jpg" />
+    <slide type="itemize">
+      <title>Output files</title>
+      <itemize>
+	<item>xml</item>
+	<item>fo</item>
+	<item>xsl</item>
+	<item>xhtml</item>
+	<item>pdf</item>
+      </itemize>
+    </slide>
+
+    <slide type="picture">
+      <title>The result</title>
+      <picture href="pics/picture.jpg" width="400"/>
     </slide>
   </slides>
 </presentation>

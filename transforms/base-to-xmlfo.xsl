@@ -59,15 +59,5 @@
       </xsl:element>
     </xsl:for-each>
   </xsl:template>
-
-  <!-- <xsl:template match="teacher"> -->
-  <!--   <xsl:element name="fo:block"> -->
-  <!--     <xsl:attribute name="font-family">Ubuntu</xsl:attribute> -->
-  
-  <!--     <xsl:attribute name="font-size">22pt</xsl:attribute> -->
-  
-  <!--     <xsl:value-of select="." /> -->
-  <!--   </xsl:element> -->
-  <!-- </xsl:template> -->
 </xsl:stylesheet>
 
