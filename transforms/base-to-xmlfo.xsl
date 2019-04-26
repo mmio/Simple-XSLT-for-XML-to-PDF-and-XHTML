@@ -4,6 +4,8 @@
 		xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 		xmlns:fo="http://www.w3.org/1999/XSL/Format">
   
+  <xsl:import href="params.xsl"/>
+
   <xsl:output method="xml" indent="yes"/>
 
   <xsl:template match="/">
@@ -52,6 +54,7 @@
 		<xsl:apply-templates select="/presentation/meta/date" />
 	      </fo:block>
 	    </xsl:if>
+
 	    <xsl:apply-templates />
 	  </fo:flow>
 	</fo:page-sequence>
@@ -59,11 +62,42 @@
     </fo:root>
   </xsl:template>
   <xsl:template match="itemize">
-    <xsl:for-each select="item">
-      <fo:block font-family="Arial" font-size="22pt">
-	<xsl:value-of select="." />
-      </fo:block>
-    </xsl:for-each>
+    <fo:block span="all">
+    <fo:list-block font-family="Arial" font-size="22pt">
+      <xsl:for-each select="item">
+    	<fo:list-item>
+    	  <fo:list-item-label>
+    	    <fo:block>
+    	      *
+    	    </fo:block>
+    	  </fo:list-item-label>
+    	  <fo:list-item-body start-indent="22pt">
+    	    <fo:block>
+    	      <xsl:value-of select="." />
+    	    </fo:block>
+    	  </fo:list-item-body>
+    	</fo:list-item>
+      </xsl:for-each>
+    </fo:list-block>
+    </fo:block>
+  </xsl:template>
+  <xsl:template match="multicol/itemize">
+    <fo:list-block font-family="Arial" font-size="22pt">
+      <xsl:for-each select="item">
+    	<fo:list-item>
+    	  <fo:list-item-label>
+    	    <fo:block>
+    	      *
+    	    </fo:block>
+    	  </fo:list-item-label>
+    	  <fo:list-item-body start-indent="22pt">
+    	    <fo:block>
+    	      <xsl:value-of select="." />
+    	    </fo:block>
+    	  </fo:list-item-body>
+    	</fo:list-item>
+      </xsl:for-each>
+    </fo:list-block>
   </xsl:template>
   <xsl:template match="picture">
     <fo:block text-align="center" span="all">
