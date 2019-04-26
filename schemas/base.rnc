@@ -1,4 +1,11 @@
 grammar {
+	 mixedText =
+	     (text*
+	     & element bold { text }*
+	     & element italics { text }*
+	     & element underline { text }*
+	     )*
+
 	 start = presentation
 
 	 presentation = element presentation {
@@ -13,21 +20,28 @@ grammar {
 	 
 	 slides = element slides {
 		      element slide {
-			  attribute type { "title" | "itemize" | "picture"},
-			  element title { text },
+			  attribute type { "title" | "itemize" | "picture" | "multicol"},
+			  element title { mixedText },
 
-			  ( list-slide | picture-slide | title-slide )
+			  ( list-slide | double-slide | picture-slide | title-slide )
 		      }+
 		  }
 
 	 list-slide = element itemize {
-			  element item { text }+
+			  element item {
+			      mixedText
+			  }+
 		      }
-
+	 
 	 picture-slide = element picture {
 			     attribute href { text },
 			     attribute width { xsd:int }
 			 }
 
 	 title-slide = empty
+
+	 double-slide = element multicol {
+			    list-slide & 
+			    picture-slide
+			}
 }

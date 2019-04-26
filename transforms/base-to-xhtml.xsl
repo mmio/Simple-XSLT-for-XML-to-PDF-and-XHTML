@@ -22,6 +22,7 @@
 	  <div class="container">
 	    <div class="mt-4">
 
+	      <!-- Navigation -->
 	      <xsl:if test="not(position()=1)">
 		<a href="file_{position() - 2}-output.xhtml">
 		  <button class="btn">
@@ -47,7 +48,7 @@
 	      <xsl:if test="position() = last()">
 		<a href="file_{position()}-output.xhtml" class="float-right">
 		  <button class="btn" disabled="true">
-		    next
+		    next 
 		  </button>
 		</a>
 	      </xsl:if>
@@ -55,15 +56,17 @@
 	      <hr />
 	    </div>
 
-	    <xsl:apply-templates select="title" />
-	    <xsl:apply-templates select="itemize" />
-	    <xsl:apply-templates select="picture" />
+	    <!-- Content -->
+	    <div style="min-height: 400px;">
+	      <xsl:apply-templates />
+	    </div>
 
 	    <hr />
 
+	    <!-- Meta data -->
+	    Page <xsl:value-of select="position()" /> of <xsl:value-of select="last()" />
 	    <xsl:apply-templates select="/presentation/meta/date" />
 	    <xsl:apply-templates select="/presentation/meta/author" />
-
 	  </div>
 	</body>
       </html>
@@ -86,18 +89,26 @@
 
   <xsl:template match="title">
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <h1>
-	<xsl:value-of select="." />
-      </h1>
+      <xsl:if test="../@type = 'title'">
+	<h1 class="text-center" style="padding-top: 16%;">
+	  <xsl:value-of select="." />
+	</h1>
+      </xsl:if>
+      <xsl:if test="../@type != 'title'">
+	<h1>
+	  <xsl:value-of select="." />
+	</h1>
+      </xsl:if>
     </div>
   </xsl:template>
   
   <xsl:template match="itemize">
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <ul >
+      <ul>
 	<xsl:for-each select="item">
 	  <li>
 	    <xsl:value-of select="." />
+	    <xsl:apply-templates />
 	  </li>
 	</xsl:for-each>
       </ul>
@@ -105,9 +116,44 @@
   </xsl:template>
 
   <xsl:template match="picture">
-    <div xmlns="http://www.w3.org/1999/xhtml" style="width: {@width}px; margin: 0 auto">
-      <img src="{@href}" style="width: 100%"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <img src="{@href}" style="width: 100%;"/>
     </div>
   </xsl:template>
 
+  <xsl:template match="multicol">
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <div style="width: 49%; display: inline-block;">
+	<xsl:apply-templates select="itemize"/>
+      </div>
+      <div style="width: 49%; float: right; display: inline-block;">
+	<xsl:apply-templates select="picture"/>
+      </div>
+    </div>
+  </xsl:template>
+
+  <xsl:template match="bold">
+    <b xmlns="http://www.w3.org/1999/xhtml">
+      <xsl:value-of select="." />
+    </b>
+  </xsl:template>
+
+  <xsl:template match="underline">
+    <u xmlns="http://www.w3.org/1999/xhtml">
+      <xsl:value-of select="." />
+    </u>
+  </xsl:template>
+
+  <xsl:template match="italics">
+    <i xmlns="http://www.w3.org/1999/xhtml">
+      <xsl:value-of select="." />
+    </i>
+  </xsl:template>
+
 </xsl:stylesheet>
+
+<!-- Video -->
+<!-- html canvas -->
+<!-- double column, horizontal vertical -->
+<!-- multichoice presentation -->
+<!-- mixed text picture-->

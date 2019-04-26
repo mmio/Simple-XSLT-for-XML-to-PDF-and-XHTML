@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="./schemas/base.rnc" type="application/relax-ng-compact-syntax"?>
 
 <presentation>
   <meta>
     <author>Dominik Vasko</author>
-    <!-- Example:  -->
     <date> 2019-04-11 </date>
   </meta>
   <slides>
@@ -21,11 +21,24 @@
       </itemize>
     </slide>
 
+    <slide type="multicol">
+      <title> What you need to get started </title>
+      <multicol>
+	<itemize>
+	  <item>Saxon</item>
+	  <item>FOP</item>
+	  <item>Stylesheets</item>
+	  <item>XML, XSL editor</item>
+	</itemize>
+	<picture href="../assets/picture.jpg" width="600"/>
+      </multicol>
+    </slide>    
+    
     <slide type="itemize">
       <title>Output files</title>
       <itemize>
 	<item>xml</item>
-	<item>fo</item>
+	<item> <italics>fo</italics> fo <bold>fo</bold> fo fo <underline>fo</underline> </item>
 	<item>xsl</item>
 	<item>xhtml</item>
 	<item>pdf</item>
@@ -34,7 +47,7 @@
 
     <slide type="picture">
       <title>The result</title>
-      <picture href="pics/picture.jpg" width="400"/>
+      <picture href="../assets/picture.jpg" width="600"/>
     </slide>
   </slides>
 </presentation>
