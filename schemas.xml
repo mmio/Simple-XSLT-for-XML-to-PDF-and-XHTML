@@ -1,6 +1,4 @@
 <?xml version="1.0"?>
 <locatingRules xmlns="http://thaiopensource.com/ns/locating-rules/1.0">
   <uri resource="base.xml" uri="schemas/base.rnc"/>
-  <uri resource="basics.xml" uri="schemas/basics.rnc"/>
-  <uri resource="basics.xml" uri="schemas/basics.rnc"/>
 </locatingRules>
