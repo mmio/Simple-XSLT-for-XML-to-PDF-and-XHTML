@@ -2,6 +2,8 @@
 <xsl:stylesheet version="1.0"
 		xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
+  <xsl:import href="params.xsl"/>
+
   <xsl:output method="xml"
 	      doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
 	      doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"
@@ -57,16 +59,18 @@
 	    </div>
 
 	    <!-- Content -->
-	    <div style="min-height: 400px;">
+	    <div style="min-height: {$xhtml-default-slide-height};">
 	      <xsl:apply-templates />
 	    </div>
 
 	    <hr />
 
 	    <!-- Meta data -->
-	    Page <xsl:value-of select="position()" /> of <xsl:value-of select="last()" />
-	    <xsl:apply-templates select="/presentation/meta/date" />
-	    <xsl:apply-templates select="/presentation/meta/author" />
+	    <div style="font-family: {$xhtml-footer-font-face}; font-size: {$xhtml-footer-font-size}">
+	      Page <xsl:value-of select="position()" /> of <xsl:value-of select="last()" />
+	      <xsl:apply-templates select="/presentation/meta/date" />
+	      <xsl:apply-templates select="/presentation/meta/author" />
+	    </div>
 	  </div>
 	</body>
       </html>
@@ -88,7 +92,7 @@
   </xsl:template>
 
   <xsl:template match="title">
-    <div xmlns="http://www.w3.org/1999/xhtml">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: {$xhtml-title-font-face}; font-size: {$xhtml-title-font-size}">
       <xsl:if test="../@type = 'title'">
 	<h1 class="text-center" style="padding-top: 16%;">
 	  <xsl:value-of select="." />
@@ -103,11 +107,10 @@
   </xsl:template>
   
   <xsl:template match="itemize">
-    <div xmlns="http://www.w3.org/1999/xhtml">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: {$xhtml-item-font-face}; font-size: {$xhtml-item-font-size}">
       <ul>
 	<xsl:for-each select="item">
 	  <li>
-	    <xsl:value-of select="." />
 	    <xsl:apply-templates />
 	  </li>
 	</xsl:for-each>
@@ -116,17 +119,18 @@
   </xsl:template>
 
   <xsl:template match="picture">
-    <div xmlns="http://www.w3.org/1999/xhtml">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="text-align: center">
       <img src="{@href}" style="width: 100%;"/>
+      <xsl:value-of select="@caption" />
     </div>
   </xsl:template>
 
   <xsl:template match="multicol">
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <div style="width: 49%; display: inline-block;">
+      <div style="max-width: 49%; display: inline-block;">
 	<xsl:apply-templates select="itemize"/>
       </div>
-      <div style="width: 49%; float: right; display: inline-block;">
+      <div style="max-width: 49%; max-height: 400px; float: right; display: inline-block;">
 	<xsl:apply-templates select="picture"/>
       </div>
     </div>

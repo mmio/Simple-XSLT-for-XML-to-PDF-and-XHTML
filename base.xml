@@ -14,40 +14,96 @@
     <slide type="itemize">
       <title> What you need to get started </title>
       <itemize>
-	<item>Saxon, a xslt processor</item>
+	<item><bold>Saxon</bold>, a xslt processor</item>
 	<item>FOP, a xml:fo processor</item>
-	<item>Stylesheets, for your xslt transformation</item>
-	<item>XML, XSL editor, you can also use VIM, Emacs</item>
+	<item><italics>Stylesheets</italics>, for your xslt transformation</item>
+	<item>XML, XSL editor, you can also use <underline>VIM, Emacs</underline></item>
       </itemize>
     </slide>
 
     <slide type="multicol">
-      <title> What you need to get started </title>
+      <title> Saxon </title>
       <multicol>
 	<itemize>
-	  <item>Saxon, a xslt processor</item>
-	  <item>FOP, a xml:fo processor</item>
-	  <item>Stylesheets, for your xslt transformation</item>
-	  <item>XML, XSL editor, you can also use VIM, Emacs</item>
+	  <item> Input: xml file and xsl tranformation </item>
+	  <item> Output: another xml file(xml, xml:fo, xhtml, etc.) </item>
+	  <item> Linting </item>
+	  <item> Version 9.9 </item>
+	  <item> Java version, Windows, Linux </item>
 	</itemize>
-	<picture href="../assets/picture.jpg" width="600"/>
+	<picture href="../assets/saxonica.gif" width="600" caption="Logo of Saxonica"/>
       </multicol>
-    </slide>    
+    </slide>
+
+    <slide type="multicol">
+      <title> FOP </title>
+      <multicol>
+	<itemize>
+	  <item>Input: xml:fo file</item>
+	  <item>Output: pdf</item>
+	  <item>Old</item>
+	</itemize>
+	<picture href="../assets/fop.png" width="600" caption="Logo of Apache"/>
+      </multicol>
+    </slide>
+
+    <slide type="itemize">
+      <title> Used constructs </title>
+      <itemize>
+	<item>Title</item>
+	<item>Lists</item>
+	<item>Images</item>
+	<item>Mixture of Picture and Image</item>
+      </itemize>
+    </slide>
+
+    <slide type="multicol">
+      <title> Lists </title>
+      <multicol>
+	<itemize>
+	  <item>List-item construct in xml:fo</item>
+	  <item>Unordered lists in xhtml</item>
+	</itemize>
+	<picture href="../assets/list.png" width="600" caption="XML:FO List" />
+      </multicol>
+    </slide>
+
+    <slide type="multicol">
+      <title> Pictures </title>
+      <multicol>
+	<itemize>
+	  <item>External-graphics in xml:fo (png, gif, jpg)</item>
+	  <item>XHTML - &lt;img&gt; tag</item>
+	</itemize>
+	<picture href="../assets/pic.png" width="600" caption="Using external images" />
+      </multicol>
+    </slide>
+
+    <slide type="multicol">
+      <title> Multicol </title>
+      <multicol>
+	<itemize>
+	  <item>Document body has 2 columns by default fo:block</item>
+	  <item>Span="all" can be used</item>
+	  <item>For XHTML -  &lt;div&gt; tags with floats</item>
+	</itemize>
+	<picture href="../assets/fo.png" width="600" caption="Multiple columns"/>
+      </multicol>
+    </slide>   
     
     <slide type="itemize">
-      <title>Output files</title>
+      <title>Files</title>
       <itemize>
-	<item>xml</item>
-	<item> <italics>fo</italics> fo <bold>fo</bold> fo fo <underline>fo</underline> </item>
-	<item>xsl</item>
-	<item>xhtml</item>
-	<item>pdf</item>
+	<item> xhtml for each slide </item>
+	<item> pdf </item>
+	<item> makefile for linux</item>
+	<item> bat for windows</item>
       </itemize>
     </slide>
 
     <slide type="picture">
       <title>The result</title>
-      <picture href="../assets/picture.jpg" width="600"/>
+      <picture href="../assets/end.png" width="600" caption="Same content in pdf and xhtml form" />
     </slide>
   </slides>
 </presentation>

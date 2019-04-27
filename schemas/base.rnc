@@ -35,7 +35,8 @@ grammar {
 	 
 	 picture-slide = element picture {
 			     attribute href { text },
-			     attribute width { xsd:int }
+			     attribute width { xsd:int },
+			     attribute caption { text }
 			 }
 
 	 title-slide = empty
