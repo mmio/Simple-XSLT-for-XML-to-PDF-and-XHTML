@@ -8,11 +8,11 @@
   </meta>
   <slides>
     <slide type="title">
-      <title> How to create a presentation in XML with XSL </title>
+      <title> How to create a presentation using XSL Transformations </title>
     </slide>
 
     <slide type="itemize">
-      <title> What you need to get started </title>
+      <title> What you will need </title>
       <itemize>
 	<item><bold>Saxon</bold>, a xslt processor</item>
 	<item>FOP, a xml:fo processor</item>
@@ -90,6 +90,28 @@
 	<picture href="../assets/fo.png" width="600" caption="Multiple columns"/>
       </multicol>
     </slide>   
+
+    <slide type="itemize">
+      <title>Validation</title>
+      <itemize>
+	<item> Relax NG </item>
+	<item> shemas </item>
+	<item> data types from XSD?</item>
+	<item> Jing </item>
+      </itemize>
+    </slide>
+
+    <slide type="multicol">
+      <title>Custom parameters</title>
+      <multicol>
+	<itemize>
+	  <item> Font size </item>
+	  <item> Font face </item>
+	  <item> Default page height </item>
+	</itemize>
+	<picture href="../assets/param.png" width="600" caption="Customizable parameters"/>
+      </multicol>
+    </slide>
     
     <slide type="itemize">
       <title>Files</title>
@@ -97,9 +119,11 @@
 	<item> xhtml for each slide </item>
 	<item> pdf </item>
 	<item> makefile for linux</item>
-	<item> bat for windows</item>
+	<item> .bat for windows</item>
       </itemize>
     </slide>
+
+
 
     <slide type="picture">
       <title>The result</title>

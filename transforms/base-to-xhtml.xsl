@@ -20,14 +20,14 @@
 	  <title> Presentation </title>
 	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
 	</head>
-	<body>
+	<body style="background-image: url('../assets/tile.png');">
 	  <div class="container">
 	    <div class="mt-4">
 
 	      <!-- Navigation -->
 	      <xsl:if test="not(position()=1)">
 		<a href="file_{position() - 2}-output.xhtml">
-		  <button class="btn">
+		  <button class="btn btn-primary">
 		    previouse
 		  </button>
 		</a>
@@ -42,7 +42,7 @@
 
 	      <xsl:if test="not(position()=last())">
 		<a href="file_{position()}-output.xhtml" class="float-right">
-		  <button class="btn">
+		  <button class="btn btn-primary">
 		    next
 		  </button>
 		</a>
@@ -59,7 +59,7 @@
 	    </div>
 
 	    <!-- Content -->
-	    <div style="min-height: {$xhtml-default-slide-height};">
+	    <div style="min-height: {$xhtml-default-slide-height}; background-color: white; padding: 1em; border-radius: 3px; box-shadow: 1px 1px 1px 0 gray; padding: 80px;">
 	      <xsl:apply-templates />
 	    </div>
 
@@ -120,7 +120,7 @@
 
   <xsl:template match="picture">
     <div xmlns="http://www.w3.org/1999/xhtml" style="text-align: center">
-      <img src="{@href}" style="width: 100%;"/>
+      <img src="{@href}" style="width: 100%; border: 1px solid gray; border-radius: 3px;"/>
       <xsl:value-of select="@caption" />
     </div>
   </xsl:template>
