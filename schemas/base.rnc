@@ -44,11 +44,11 @@ grammar {
 
 	 double-slide = element multicol {
 			    (
-				list-slide & 
+				list-slide, 
 				picture-slide
 			    )|
 			    (
-				picture-slide & 
+				picture-slide, 
 				picture-slide
 			    )
 			}

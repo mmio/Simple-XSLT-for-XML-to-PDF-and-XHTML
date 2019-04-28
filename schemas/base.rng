@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <define name="mixedText">
+    <zeroOrMore>
+      <interleave>
+        <zeroOrMore>
+          <text/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <element name="bold">
+            <text/>
+          </element>
+        </zeroOrMore>
+        <zeroOrMore>
+          <element name="italics">
+            <text/>
+          </element>
+        </zeroOrMore>
+        <zeroOrMore>
+          <element name="underline">
+            <text/>
+          </element>
+        </zeroOrMore>
+      </interleave>
+    </zeroOrMore>
+  </define>
+  <start>
+    <ref name="presentation"/>
+  </start>
+  <define name="presentation">
+    <element name="presentation">
+      <ref name="meta"/>
+      <ref name="slides"/>
+    </element>
+  </define>
+  <define name="meta">
+    <element name="meta">
+      <oneOrMore>
+        <element name="author">
+          <text/>
+        </element>
+      </oneOrMore>
+      <element name="date">
+        <data type="date"/>
+      </element>
+    </element>
+  </define>
+  <define name="slides">
+    <element name="slides">
+      <oneOrMore>
+        <element name="slide">
+          <attribute name="type">
+            <choice>
+              <value>title</value>
+              <value>itemize</value>
+              <value>picture</value>
+              <value>multicol</value>
+            </choice>
+          </attribute>
+          <element name="title">
+            <ref name="mixedText"/>
+          </element>
+          <choice>
+            <ref name="list-slide"/>
+            <ref name="double-slide"/>
+            <ref name="picture-slide"/>
+            <ref name="title-slide"/>
+          </choice>
+        </element>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="list-slide">
+    <element name="itemize">
+      <interleave>
+        <zeroOrMore>
+          <element name="item">
+            <ref name="mixedText"/>
+          </element>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="list-slide"/>
+        </zeroOrMore>
+      </interleave>
+    </element>
+  </define>
+  <define name="picture-slide">
+    <element name="picture">
+      <attribute name="href"/>
+      <attribute name="width">
+        <data type="int"/>
+      </attribute>
+      <attribute name="caption"/>
+    </element>
+  </define>
+  <define name="title-slide">
+    <empty/>
+  </define>
+  <define name="double-slide">
+    <element name="multicol">
+      <choice>
+        <group>
+          <ref name="list-slide"/>
+          <ref name="picture-slide"/>
+        </group>
+        <group>
+          <ref name="picture-slide"/>
+          <ref name="picture-slide"/>
+        </group>
+      </choice>
+    </element>
+  </define>
+</grammar>
