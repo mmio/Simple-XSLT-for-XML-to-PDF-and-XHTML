@@ -105,15 +105,17 @@
       </xsl:if>
     </div>
   </xsl:template>
+
+  <xsl:template match="item">
+    <li xmlns="http://www.w3.org/1999/xhtml">
+      <xsl:apply-templates />
+    </li>
+  </xsl:template>
   
   <xsl:template match="itemize">
     <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: {$xhtml-item-font-face}; font-size: {$xhtml-item-font-size}">
       <ul>
-	<xsl:for-each select="item">
-	  <li>
-	    <xsl:apply-templates />
-	  </li>
-	</xsl:for-each>
+	<xsl:apply-templates/>
       </ul>
     </div>
   </xsl:template>
@@ -127,11 +129,13 @@
 
   <xsl:template match="multicol">
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <div style="max-width: 49%; display: inline-block;">
-	<xsl:apply-templates select="itemize"/>
+      <div style="max-width: 49%; max-height: 400px; display: inline-block;">
+	<xsl:apply-templates select="itemize[1]"/>
+	<xsl:apply-templates select="picture[2]"/>
       </div>
       <div style="max-width: 49%; max-height: 400px; float: right; display: inline-block;">
-	<xsl:apply-templates select="picture"/>
+	<xsl:apply-templates select="picture[1]"/>
+	<xsl:apply-templates select="itemize[2]"/>
       </div>
     </div>
   </xsl:template>

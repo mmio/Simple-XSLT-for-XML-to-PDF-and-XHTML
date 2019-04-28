@@ -8,7 +8,7 @@
   </meta>
   <slides>
     <slide type="title">
-      <title> How to create a presentation using XSL Transformations </title>
+      <title> Create a presentation using XSL Transformations </title>
     </slide>
 
     <slide type="itemize">
@@ -52,8 +52,16 @@
       <itemize>
 	<item>Title</item>
 	<item>Lists</item>
+	<itemize>
+	  <item>Nesed Lists</item>
+	</itemize>
 	<item>Images</item>
 	<item>Mixture of Picture and Image</item>
+	<itemize>
+	  <item>Picture + Picture</item>
+	  <item>List + Picture</item>
+	  <item>List + List</item>
+	</itemize>
       </itemize>
     </slide>
 
@@ -123,8 +131,28 @@
       </itemize>
     </slide>
 
+    <slide type="itemize">
+      <title>Problems with repetitive code</title>
+      <itemize>
+	<item> multicol/picture and picture templates </item>
+	<item> 99% same </item>
+	<item> DRY </item>
+	<itemize>
+	  <item> Dont </item>
+	  <item> Repeat </item>
+	  <item> Yourself </item>
+	</itemize>
+      </itemize>
+    </slide>
 
-
+    <slide type="picture">
+      <title>Solution for pictures</title>
+      <multicol>
+	<picture href="../assets/mpic1.png" width="600" caption="Using parameters with templates" />
+	<picture href="../assets/mpic2.png" width="600" caption="Using parameters with templates" />
+      </multicol>
+    </slide>
+    
     <slide type="picture">
       <title>The result</title>
       <picture href="../assets/end.png" width="600" caption="Same content in pdf and xhtml form" />

@@ -66,27 +66,47 @@
   <xsl:template match="itemize" name="itemize">
     <fo:block span="all" line-height="1.5">
       <fo:list-block font-family="{$pdf-item-font-face}" font-size="{$pdf-item-font-size}">
-	<xsl:for-each select="item">
-    	  <fo:list-item>
-    	    <fo:list-item-label>
-    	      <fo:block>
-    		*
-    	      </fo:block>
-    	    </fo:list-item-label>
-    	    <fo:list-item-body start-indent="22pt">
-    	      <fo:block>
-		<xsl:apply-templates />
-    	      </fo:block>
-    	    </fo:list-item-body>
-    	  </fo:list-item>
-	</xsl:for-each>
+	<xsl:apply-templates>
+	  <xsl:with-param name="indent" select = "'22pt'" />
+	  <xsl:with-param name="leading-tag" select = "'*'" />
+	</xsl:apply-templates>
       </fo:list-block>
     </fo:block>
   </xsl:template>
 
-  <xsl:template match="multicol/itemize">
+  <xsl:template match="item">
+    <xsl:param name = "indent" />
+    <xsl:param name = "leading-tag" />
+
+    <fo:list-item start-indent="{$indent}">
+      <fo:list-item-label>
+    	<fo:block>
+	  <xsl:value-of select="$leading-tag" />
+    	</fo:block>
+      </fo:list-item-label>
+      <fo:list-item-body start-indent="{$indent} + 15pt">
+    	<fo:block>
+	  <xsl:apply-templates />
+    	</fo:block>
+      </fo:list-item-body>
+    </fo:list-item>
+  </xsl:template>
+
+  <xsl:template match="itemize/itemize">
+    <xsl:apply-templates>
+      <xsl:with-param name="indent" select = "'44pt'" />
+      <xsl:with-param name="leading-tag" select = "'-'" />
+    </xsl:apply-templates>
+  </xsl:template>
+
+  <xsl:template match="multicol">
     <fo:block span="none">
-      <xsl:call-template name="itemize" />
+	<xsl:apply-templates select="itemize[1]"/>
+	<xsl:apply-templates select="picture[2]"/>
+    </fo:block>
+    <fo:block span="none">
+      <xsl:apply-templates select="picture[1]"/>
+      <xsl:apply-templates select="itemize[2]"/>
     </fo:block>
   </xsl:template>
 
@@ -125,7 +145,7 @@
 
   <xsl:template match="multicol/picture">
     <xsl:call-template name="basic-picture">
-      <xsl:with-param name="width" select = "'120mm'" />
+      <xsl:with-param name="width" select = "'110mm'" />
       <xsl:with-param name="height" select = "'200mm'" />
       <xsl:with-param name="span" select = "'none'" />
     </xsl:call-template>

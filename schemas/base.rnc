@@ -30,7 +30,8 @@ grammar {
 	 list-slide = element itemize {
 			  element item {
 			      mixedText
-			  }+
+			  }* &
+			  list-slide*
 		      }
 	 
 	 picture-slide = element picture {
@@ -42,7 +43,13 @@ grammar {
 	 title-slide = empty
 
 	 double-slide = element multicol {
-			    list-slide & 
-			    picture-slide
+			    (
+				list-slide & 
+				picture-slide
+			    )|
+			    (
+				picture-slide & 
+				picture-slide
+			    )
 			}
 }
