@@ -15,9 +15,9 @@
       <title> What you will need </title>
       <itemize>
 	<item><bold>Saxon</bold>, a xslt processor</item>
-	<item>FOP, a xml:fo processor</item>
+	<item><bold>FOP</bold>, a xml:fo processor</item>
 	<item><italics>Stylesheets</italics>, for your xslt transformation</item>
-	<item>XML, XSL editor, you can also use <underline>VIM, Emacs</underline></item>
+	<item>XML, XSL editor, you can also use <underline>Atom, VSC, VIM, Emacs, etc.</underline></item>
       </itemize>
     </slide>
 
@@ -39,9 +39,9 @@
       <title> FOP </title>
       <multicol>
 	<itemize>
-	  <item>Input: xml:fo file</item>
-	  <item>Output: pdf</item>
-	  <item>Old</item>
+	  <item> Input: xml:fo file </item>
+	  <item> Output: pdf </item>
+	  <item> Version 2.1 or higher </item>
 	</itemize>
 	<picture href="../assets/fop.png" width="600" caption="Logo of Apache"/>
       </multicol>
@@ -51,12 +51,14 @@
       <title> Used constructs </title>
       <itemize>
 	<item>Title</item>
+	<item>Text highlighting</item>
 	<item>Lists</item>
 	<itemize>
-	  <item>Nesed Lists</item>
+	  <item>Oridinary Lists</item>
+	  <item>Nesed Lists (2 levels)</item>
 	</itemize>
 	<item>Images</item>
-	<item>Mixture of Picture and Image</item>
+	<item>Mixture of Pictures and Lists</item>
 	<itemize>
 	  <item>Picture + Picture</item>
 	  <item>List + Picture</item>
@@ -81,7 +83,7 @@
       <multicol>
 	<itemize>
 	  <item>External-graphics in xml:fo (png, gif, jpg)</item>
-	  <item>XHTML - &lt;img&gt; tag</item>
+	  <item>&lt;img&gt; tag in XHTML</item>
 	</itemize>
 	<picture href="../assets/pic.png" width="600" caption="Using external images" />
       </multicol>
@@ -92,20 +94,19 @@
       <multicol>
 	<itemize>
 	  <item>Document body has 2 columns by default fo:block</item>
-	  <item>Span="all" can be used</item>
+	  <item>Span="all" can be used to span every column</item>
 	  <item>For XHTML -  &lt;div&gt; tags with floats</item>
 	</itemize>
 	<picture href="../assets/fo.png" width="600" caption="Multiple columns"/>
       </multicol>
     </slide>   
 
-    <slide type="itemize">
+    <slide type="multicol">
       <title>Validation</title>
       <itemize>
 	<item> Relax NG </item>
-	<item> shemas </item>
-	<item> data types from XSD?</item>
-	<item> Jing </item>
+	<item> Compact syntax </item>
+	<item> Schemas </item>
       </itemize>
     </slide>
 
@@ -115,7 +116,7 @@
 	<itemize>
 	  <item> Font size </item>
 	  <item> Font face </item>
-	  <item> Default page height </item>
+	  <item> Default page height for XHTML </item>
 	</itemize>
 	<picture href="../assets/param.png" width="600" caption="Customizable parameters"/>
       </multicol>
@@ -124,8 +125,9 @@
     <slide type="itemize">
       <title>Files</title>
       <itemize>
-	<item> xhtml for each slide </item>
-	<item> pdf </item>
+	<item> XHTML for each slide </item>
+	<item> One big pdf </item>
+	<item> Schema file for validation </item>
 	<item> makefile for linux</item>
 	<item> .bat for windows</item>
       </itemize>

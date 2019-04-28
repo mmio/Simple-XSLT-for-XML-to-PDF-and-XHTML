@@ -135,7 +135,6 @@
       </div>
       <div style="max-width: 49%; max-height: 400px; float: right; display: inline-block;">
 	<xsl:apply-templates select="picture[1]"/>
-	<xsl:apply-templates select="itemize[2]"/>
       </div>
     </div>
   </xsl:template>

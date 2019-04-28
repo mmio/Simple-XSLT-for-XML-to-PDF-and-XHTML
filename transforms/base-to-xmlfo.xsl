@@ -106,7 +106,6 @@
     </fo:block>
     <fo:block span="none">
       <xsl:apply-templates select="picture[1]"/>
-      <xsl:apply-templates select="itemize[2]"/>
     </fo:block>
   </xsl:template>
 
