@@ -23,5 +23,5 @@
   <xsl:param name="xhtml-footer-font-size" select="'11pt'"/>
   <xsl:param name="xhtml-footer-font-face" select="'Times'"/>
 
-  <xsl:param name="xhtml-default-slide-height" select="'520px'"/>
+  <xsl:param name="xhtml-default-slide-height" select="'600px'"/>
 </xsl:stylesheet>
